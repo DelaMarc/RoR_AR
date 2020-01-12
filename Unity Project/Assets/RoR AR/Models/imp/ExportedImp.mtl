@@ -1,0 +1,15 @@
+newmtl Model001_Material001
+map_Kd skinboneS.png
+map_bump skinboneS_n.png
+
+newmtl Model001_Material002
+map_Kd skinboneS.png
+map_bump skinboneS_n.png
+
+newmtl Model001_Material003
+map_Kd em0001_body_bm.png
+map_bump em0001_body_nm.png
+
+newmtl Model001_Material004
+map_Kd Image095E43E0_095E9860.png
+
