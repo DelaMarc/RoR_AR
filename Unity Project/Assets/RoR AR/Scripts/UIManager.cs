@@ -31,11 +31,6 @@ public class UIManager : MonoBehaviour
         fadeScreen.SetActive(true);
     }
 
-    public void ToggleBlockClick()
-    {
-        panelBlockClick.SetActive(!panelBlockClick.activeSelf);
-    }
-
     //toggles appearance / disappearance of the menu
     public void ToggleMenu()
     {

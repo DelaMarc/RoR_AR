@@ -80,6 +80,7 @@
     <Compile Include="Assets\LeanTween\Framework\LTSeq.cs" />
     <Compile Include="Assets\RoR AR\Scripts\AutoTween.cs" />
     <Compile Include="Assets\RoR AR\Scripts\CustomTrackableEventHandler.cs" />
+    <Compile Include="Assets\RoR AR\Scripts\FocusScreenMode.cs" />
     <Compile Include="Assets\RoR AR\Scripts\Interaction.cs" />
     <Compile Include="Assets\RoR AR\Scripts\ListItem.cs" />
     <Compile Include="Assets\RoR AR\Scripts\ModelManager.cs" />

@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 507469110}
   - component: {fileID: 507469109}
   - component: {fileID: 507469108}
+  - component: {fileID: 507469111}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -203,6 +204,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &507469111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 507469107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 119e4d6e3ce917e4a84ab735fe063f40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  screenOrientation: 4
 --- !u!1001 &8591824915612774594
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -279,6 +293,66 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8085361657240741890, guid: 637c64046e3941440bb22ca9083a61d3,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -7.299988
+      objectReference: {fileID: 0}
+    - target: {fileID: 8085361657240741890, guid: 637c64046e3941440bb22ca9083a61d3,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -146.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8085361657240741890, guid: 637c64046e3941440bb22ca9083a61d3,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8085361657240741890, guid: 637c64046e3941440bb22ca9083a61d3,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8591824916481593852, guid: 637c64046e3941440bb22ca9083a61d3,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7866814460884923271, guid: 637c64046e3941440bb22ca9083a61d3,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7892332672580186762, guid: 637c64046e3941440bb22ca9083a61d3,
+        type: 3}
+      propertyPath: m_Text
+      value: 'This is a fanmade AR application based on the game Rule of Rose.
+
+        Rule of Rose belongs belongs to Atlus and the models used here belong to their
+        beneficiaries.
+
+        Support the original game.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7892332672580186762, guid: 637c64046e3941440bb22ca9083a61d3,
+        type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7892332672580186762, guid: 637c64046e3941440bb22ca9083a61d3,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7892332672580186762, guid: 637c64046e3941440bb22ca9083a61d3,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7892332672580186762, guid: 637c64046e3941440bb22ca9083a61d3,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 637c64046e3941440bb22ca9083a61d3, type: 3}

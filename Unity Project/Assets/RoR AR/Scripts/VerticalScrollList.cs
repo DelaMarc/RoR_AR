@@ -17,7 +17,7 @@ public class VerticalScrollList : MonoBehaviour
     //populate the scrollable list at start
     void Start()
     {
-        StartCoroutine(InitItems());  
+        StartCoroutine(InitItems());
     }
 
     IEnumerator InitItems()
@@ -54,7 +54,6 @@ public class VerticalScrollList : MonoBehaviour
 
         item.GetComponent<Button>().onClick.AddListener(() => {
             autoTween.Toggle();
-            UIManager.instance.ToggleBlockClick();
             ModelManager.instance.SelectModel(staticIndex);
         });
     }

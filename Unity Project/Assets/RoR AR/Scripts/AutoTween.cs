@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class AutoTween : MonoBehaviour
 {
@@ -13,6 +14,10 @@ public class AutoTween : MonoBehaviour
     bool visible = false;
     [SerializeField]
     bool disableOnStart = true;
+    [SerializeField]
+    //event called in case we want more actions to play before the tween animation
+    UnityEvent toggleEvent;
+    bool tweening = false;
 
     //hide the item at application start
     private void Start()
@@ -26,22 +31,38 @@ public class AutoTween : MonoBehaviour
     //toggles appearance / disappearance of the item
     public void Toggle()
     {
-        visible = !visible;
-        if (visible)
+        //call possible more actions
+        toggleEvent.Invoke();
+        if (tweening == false)
         {
-            itemToTween.SetActive(true);
-            LeanTween.moveLocalX(itemToTween, 0, transitionSpeed);
-        }
-        else
-        {
-            LeanTween.moveLocalX(itemToTween, itemHiddenPosition, transitionSpeed).setOnComplete(ToggleComplete);
+            visible = !visible;
+            tweening = true;
+            if (visible)
+            {
+                itemToTween.SetActive(true);
+                LeanTween.moveLocalX(itemToTween, 0, transitionSpeed).setOnComplete(() => tweening = false);
+            }
+            else
+            {
+                LeanTween.moveLocalX(itemToTween, itemHiddenPosition, transitionSpeed).setOnComplete(ToggleComplete);
+            }
         }
     }
 
     //to be called when the item must be hidden
     void ToggleComplete()
     {
+        tweening = false;
         itemToTween.SetActive(false);
+    }
+
+    public void ToggleGameObject(GameObject o)
+    {
+        //toggle the gameobject only if tno leantween animation is playing
+        if (tweening == false)
+        {
+            o.SetActive(!o.activeSelf);
+        }
     }
 
 }
