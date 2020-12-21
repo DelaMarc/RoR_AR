@@ -79,12 +79,12 @@ public class ModelManager : MonoBehaviour
     }
 
     //add a new model to the object list
-    public void AddModel(AEntity model)
+    public void AddModel(EntityData a_data)
     {
         AEntity newModel;
 
-        newModel = Instantiate(model, instance.transform);
-        newModel.Init();
+        newModel = Instantiate(a_data.Item, instance.transform);
+        newModel.Init(a_data);
         models.Add(newModel);
     }
 

@@ -13,15 +13,11 @@ namespace RORAR.Entity
         protected Interaction m_interaction;
         [SerializeField]
         protected LeanSelectable m_leanSelectable;
-        [SerializeField]
-        protected bool m_doesRotate;
-        [SerializeField]
-        protected bool m_doesScale;
         private Renderer[] m_renderers;
 
-        public virtual void Init()
+        public virtual void Init(EntityData a_data)
         {
-            m_interaction.Init(m_doesRotate, m_doesScale, m_leanSelectable);
+            m_interaction.Init(a_data.DoesRotate, a_data.DoesScale, m_leanSelectable);
             gameObject.SetActive(false);
             transform.localPosition = Vector3.zero;
             m_renderers = GetComponentsInChildren<Renderer>();

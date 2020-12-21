@@ -84,9 +84,9 @@
     <Compile Include="Assets\RoR AR\Scripts\DeployStageOnce.cs" />
     <Compile Include="Assets\RoR AR\Scripts\Entity\AEntity.cs" />
     <Compile Include="Assets\RoR AR\Scripts\Entity\DefaultEntity.cs" />
+    <Compile Include="Assets\RoR AR\Scripts\EntityData.cs" />
     <Compile Include="Assets\RoR AR\Scripts\FocusScreenMode.cs" />
     <Compile Include="Assets\RoR AR\Scripts\Interaction.cs" />
-    <Compile Include="Assets\RoR AR\Scripts\ListItem.cs" />
     <Compile Include="Assets\RoR AR\Scripts\ModelManager.cs" />
     <Compile Include="Assets\RoR AR\Scripts\SplashScreen.cs" />
     <Compile Include="Assets\RoR AR\Scripts\UIManager.cs" />

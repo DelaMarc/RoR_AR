@@ -10,7 +10,7 @@ public class VerticalScrollList : MonoBehaviour
     [SerializeField]
     GameObject itemListPrefab;
     [SerializeField]
-    List<ListItem> items;
+    List<EntityData> items;
     [SerializeField]
     AutoTween autoTween;
 
@@ -35,11 +35,11 @@ public class VerticalScrollList : MonoBehaviour
             //set new item with image
             newItem = Instantiate(itemListPrefab, listContent.transform);
             tmpTxt = newItem.GetComponentInChildren<Text>();
-            tmpTxt.text = items[i].name;
-            newItem.name = items[i].name;
+            tmpTxt.text = items[i].Name;
+            newItem.name = items[i].Name;
             Addlisteners(i, newItem);
             //update Object Manager List
-            ModelManager.instance.AddModel(items[i].item);
+            ModelManager.instance.AddModel(items[i]);
         }
         //set first model in model manager
         ModelManager.instance.SelectModel(0);
