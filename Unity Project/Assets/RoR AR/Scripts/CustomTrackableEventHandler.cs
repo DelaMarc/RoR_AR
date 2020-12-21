@@ -16,7 +16,7 @@ public class CustomTrackableEventHandler : DefaultTrackableEventHandler
             ModelManager.instance.imageTargetVisible = true;
             if (verbose)
             {
-                Debug.Log("Traacking found");
+                Debug.Log("<color=red>Tracking found</color>");
             }
         }
     }
@@ -29,7 +29,7 @@ public class CustomTrackableEventHandler : DefaultTrackableEventHandler
             ModelManager.instance.imageTargetVisible = false;
             if (verbose)
             {
-                Debug.Log("Traacking lost");
+                Debug.Log("<color>Tracking lost</color>");
             }
         }
     }

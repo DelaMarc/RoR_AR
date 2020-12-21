@@ -139,4 +139,13 @@ public class ModelManager : MonoBehaviour
         newModel.SetActive(true);
         currentARObject = newModel;
     }
+
+    public void OnTrackingLost()
+    {
+        Debug.Log("<color=red>Tracking lost</color>");
+    }
+    public void OnTrackingFound()
+    {
+        Debug.Log("<color=red>Tracking found</color>");
+    }
 }
