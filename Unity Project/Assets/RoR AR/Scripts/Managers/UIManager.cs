@@ -4,17 +4,12 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField]
     //splash screen to enable on play
-    GameObject fadeScreen;
-    [SerializeField]
-    GameObject panelBlockClick;
-    [SerializeField]
-    GameObject menuItem;
-    [SerializeField]
-    GameObject weatherItem;
-    [SerializeField]
-    float menuTransitionSpeed;
+    [SerializeField] GameObject fadeScreen;
+    [SerializeField] GameObject panelBlockClick;
+    [SerializeField] VerticalScrollList menuItem;
+    [SerializeField] GameObject weatherItem;
+    [SerializeField]  float menuTransitionSpeed;
     bool menuVisible = false;
     bool weatherVisible = false;
     public static UIManager instance;
@@ -27,8 +22,13 @@ public class UIManager : MonoBehaviour
             Destroy(instance);
         }
         instance = this;
+    }
+
+    public void Init(SceneConfigData a_data)
+    {
         //enable fade screen in case it is disabled
         fadeScreen.SetActive(true);
+        menuItem.Init(a_data.Items);
     }
 
     //toggles appearance / disappearance of the menu
@@ -37,12 +37,12 @@ public class UIManager : MonoBehaviour
         menuVisible = !menuVisible;
         if (menuVisible)
         {
-            menuItem.SetActive(true);
-            LeanTween.moveLocalX(menuItem, 0, menuTransitionSpeed);
+            menuItem.gameObject.SetActive(true);
+            LeanTween.moveLocalX(menuItem.gameObject, 0, menuTransitionSpeed);
         }
         else
         {
-            LeanTween.moveLocalX(menuItem, 1300, menuTransitionSpeed).setOnComplete(ToggleMenuComplete);
+            LeanTween.moveLocalX(menuItem.gameObject, 1300, menuTransitionSpeed).setOnComplete(ToggleMenuComplete);
         }
         //ToggleBlockClick();
     }
@@ -50,7 +50,7 @@ public class UIManager : MonoBehaviour
     //to be called when the menu must be hidden
     void ToggleMenuComplete()
     {
-        menuItem.SetActive(false);
+        menuItem.gameObject.SetActive(false);
     }
 
     //toggles appearance / disappearance of the menu

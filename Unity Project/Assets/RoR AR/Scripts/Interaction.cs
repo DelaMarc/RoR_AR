@@ -17,10 +17,10 @@ public class Interaction : MonoBehaviour
     private bool m_doesRotate = true;
     private bool m_doesScale = true;
 
-    public void Init(bool a_doesRotate, bool a_doesScale, LeanSelectable a_leanSelectable)
+    public void Init(EntityData a_data, LeanSelectable a_leanSelectable)
     {
-        m_doesRotate = a_doesRotate;
-        m_doesScale = a_doesScale;
+        m_doesRotate = a_data.DoesRotate;
+        m_doesScale = a_data.DoesScale;
         //initialize LeanFingerFilter
         m_use = new LeanFingerFilter(true);
         m_use.Filter = LeanFingerFilter.FilterType.AllFingers;
@@ -29,7 +29,7 @@ public class Interaction : MonoBehaviour
         m_use.RequiredSelectable = leanSelectable;
         leanSelectable.IsSelected = true;
         //set minimum scale
-        minScale = transform.localScale.x;
+        minScale = a_data.Scale;
         pinchScale = 1f;
     }
 

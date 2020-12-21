@@ -17,7 +17,7 @@ namespace RORAR.Entity
 
         public virtual void Init(EntityData a_data)
         {
-            m_interaction.Init(a_data.DoesRotate, a_data.DoesScale, m_leanSelectable);
+            m_interaction.Init(a_data, m_leanSelectable);
             gameObject.SetActive(false);
             transform.localPosition = Vector3.zero;
             m_renderers = GetComponentsInChildren<Renderer>();

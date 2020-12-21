@@ -18,23 +18,28 @@ public class ModelManager : MonoBehaviour
     List<AEntity> models;
     int currentSelected;
     GameObject imageTargetDummy;
-    [SerializeField]
-    GameObject inclinedDummy, straightDummy;
+    [SerializeField] GameObject inclinedDummy, straightDummy;
     DummyPosition dummyPosition = DummyPosition.straigt;
     AEntity currentARObject;
     [HideInInspector]
     public bool imageTargetVisible = false;
-    [SerializeField]
-    bool verbose;
+    bool m_verbose;
 
     //initialize singleton
     private void Start()
     {
+
+    }
+
+    public void Init(SceneConfigData a_data)
+    {
+        //initialize singleton
         if (instance != null && instance != this)
         {
             Destroy(instance);
         }
         instance = this;
+        //setup model list
         models = new List<AEntity>();
         currentSelected = -1;
         //setup the rest of the class
@@ -43,9 +48,14 @@ public class ModelManager : MonoBehaviour
         if (imageTargetDummy.transform.childCount == 0)
             currentARObject = null;
         else
-            currentARObject = imageTargetDummy.transform.GetChild(0).gameObject.GetComponent<AEntity>();        
+            currentARObject = imageTargetDummy.transform.GetChild(0).gameObject.GetComponent<AEntity>();
+        //update Object Manager List
+        for (int i = 0; i < a_data.Items.Length; ++i)
+        {
+            AddModel(a_data.Items[i]);
+        }
+        m_verbose = a_data.Verbose;
     }
-
     public void SwitchDummy(Text textButton)
     {
         //switch active dummy
@@ -54,7 +64,7 @@ public class ModelManager : MonoBehaviour
             imageTargetDummy = inclinedDummy;
             dummyPosition = DummyPosition.inclined;
             textButton.text = "View : inclined";
-            if (verbose)
+            if (m_verbose)
             {
                 Debug.Log("Set dummy to inclined");
             }
@@ -64,7 +74,7 @@ public class ModelManager : MonoBehaviour
             imageTargetDummy = straightDummy;
             dummyPosition = DummyPosition.straigt;
             textButton.text = "View : straight";
-            if (verbose)
+            if (m_verbose)
             {
                 Debug.Log("Set dummy to straight");
             }
@@ -94,7 +104,7 @@ public class ModelManager : MonoBehaviour
         AEntity model = models[index];
         Renderer[] renderers = model.GetComponentsInChildren<Renderer>();
 
-        if (verbose)
+        if (m_verbose)
         {
             Debug.Log("Enable Item Renderers : " + enable);
         }
@@ -132,8 +142,9 @@ public class ModelManager : MonoBehaviour
         currentARObject = newModel;
     }
 
-    private void Update()
+    public void Manage()
     {
         currentARObject?.Manage();
     }
 }
+
