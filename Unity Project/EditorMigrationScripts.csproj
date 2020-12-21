@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{3FFF69CE-1083-80B2-2D84-DC29DF43F36F}</ProjectGuid>
+    <ProjectGuid>{0B3CFF4A-516B-609C-BE38-F8DB7D885D73}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>EditorMigrationScripts</AssemblyName>
@@ -66,16 +66,16 @@
     <Compile Include="Assets\Editor\Migration\AddVuforiaEnginePackage.cs" />
     <None Include="Assets\Editor\Migration\EditorMigrationScripts.asmdef" />
     <Reference Include="UnityEditor.UI">
-      <HintPath>C:/Users/Utilisateur/Documents/Projects perso/RoRAR2/RoR_AR/New Unity Project 2/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>C:/Users/Utilisateur/Documents/Projects perso/RoRAR2/RoR_AR/Unity Project/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>C:/Users/Utilisateur/Documents/Projects perso/RoRAR2/RoR_AR/New Unity Project 2/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>C:/Users/Utilisateur/Documents/Projects perso/RoRAR2/RoR_AR/Unity Project/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.TestRunner">
-      <HintPath>C:/Users/Utilisateur/Documents/Projects perso/RoRAR2/RoR_AR/New Unity Project 2/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
+      <HintPath>C:/Users/Utilisateur/Documents/Projects perso/RoRAR2/RoR_AR/Unity Project/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TestRunner">
-      <HintPath>C:/Users/Utilisateur/Documents/Projects perso/RoRAR2/RoR_AR/New Unity Project 2/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
+      <HintPath>C:/Users/Utilisateur/Documents/Projects perso/RoRAR2/RoR_AR/Unity Project/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.11f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -270,13 +270,13 @@
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/16.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
     <Reference Include="Vuforia.UnityExtensions.Editor">
-      <HintPath>C:/Users/Utilisateur/Documents/Projects perso/RoRAR2/RoR_AR/New Unity Project 2/Library/PackageCache/com.ptc.vuforia.engine@9.1.7/Vuforia/Plugins/Managed/Editor/Vuforia.UnityExtensions.Editor.dll</HintPath>
+      <HintPath>C:/Users/Utilisateur/Documents/Projects perso/RoRAR2/RoR_AR/Unity Project/Library/PackageCache/com.ptc.vuforia.engine@9.6.3/Vuforia/Plugins/Managed/Editor/Vuforia.UnityExtensions.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Vuforia.UnityExtensions">
-      <HintPath>C:/Users/Utilisateur/Documents/Projects perso/RoRAR2/RoR_AR/New Unity Project 2/Library/PackageCache/com.ptc.vuforia.engine@9.1.7/Vuforia/Plugins/Managed/Runtime/Vuforia.UnityExtensions.dll</HintPath>
+      <HintPath>C:/Users/Utilisateur/Documents/Projects perso/RoRAR2/RoR_AR/Unity Project/Library/PackageCache/com.ptc.vuforia.engine@9.6.3/Vuforia/Plugins/Managed/Runtime/Vuforia.UnityExtensions.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
-      <HintPath>C:/Users/Utilisateur/Documents/Projects perso/RoRAR2/RoR_AR/New Unity Project 2/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
+      <HintPath>C:/Users/Utilisateur/Documents/Projects perso/RoRAR2/RoR_AR/Unity Project/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.11f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>

@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{14D9C3BD-2E8F-8C65-094E-911FF3B0F06D}</ProjectGuid>
+    <ProjectGuid>{3581A99C-59E9-3D7A-FE33-C8839A045BC3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
@@ -70,43 +70,43 @@
     <None Include="Assets\Editor\Vuforia\Vuforia_Marslander_RZR_Toy360\authoringinfo.xml" />
     <None Include="Assets\Editor\Vuforia\CylinderTargetTextures\VuforiaMars_Images\authoringinfo.xml" />
     <Reference Include="UnityEditor.TestRunner">
-      <HintPath>C:/Users/Utilisateur/Documents/Projects perso/RoRAR2/RoR_AR/New Unity Project 2/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
+      <HintPath>C:/Users/Utilisateur/Documents/Projects perso/RoRAR2/RoR_AR/Unity Project/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TestRunner">
-      <HintPath>C:/Users/Utilisateur/Documents/Projects perso/RoRAR2/RoR_AR/New Unity Project 2/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
+      <HintPath>C:/Users/Utilisateur/Documents/Projects perso/RoRAR2/RoR_AR/Unity Project/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>C:/Users/Utilisateur/Documents/Projects perso/RoRAR2/RoR_AR/New Unity Project 2/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>C:/Users/Utilisateur/Documents/Projects perso/RoRAR2/RoR_AR/Unity Project/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>C:/Users/Utilisateur/Documents/Projects perso/RoRAR2/RoR_AR/New Unity Project 2/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/Utilisateur/Documents/Projects perso/RoRAR2/RoR_AR/New Unity Project 2/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>C:/Users/Utilisateur/Documents/Projects perso/RoRAR2/RoR_AR/New Unity Project 2/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Timeline">
-      <HintPath>C:/Users/Utilisateur/Documents/Projects perso/RoRAR2/RoR_AR/New Unity Project 2/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>C:/Users/Utilisateur/Documents/Projects perso/RoRAR2/RoR_AR/New Unity Project 2/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Rider.Editor">
-      <HintPath>C:/Users/Utilisateur/Documents/Projects perso/RoRAR2/RoR_AR/New Unity Project 2/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/Utilisateur/Documents/Projects perso/RoRAR2/RoR_AR/New Unity Project 2/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.UI">
-      <HintPath>C:/Users/Utilisateur/Documents/Projects perso/RoRAR2/RoR_AR/New Unity Project 2/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>C:/Users/Utilisateur/Documents/Projects perso/RoRAR2/RoR_AR/Unity Project/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="VuforiaScripts">
-      <HintPath>C:/Users/Utilisateur/Documents/Projects perso/RoRAR2/RoR_AR/New Unity Project 2/Library/ScriptAssemblies/VuforiaScripts.dll</HintPath>
+      <HintPath>C:/Users/Utilisateur/Documents/Projects perso/RoRAR2/RoR_AR/Unity Project/Library/ScriptAssemblies/VuforiaScripts.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro.Editor">
+      <HintPath>C:/Users/Utilisateur/Documents/Projects perso/RoRAR2/RoR_AR/Unity Project/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>C:/Users/Utilisateur/Documents/Projects perso/RoRAR2/RoR_AR/Unity Project/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Timeline">
+      <HintPath>C:/Users/Utilisateur/Documents/Projects perso/RoRAR2/RoR_AR/Unity Project/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="VuforiaEditorScripts">
-      <HintPath>C:/Users/Utilisateur/Documents/Projects perso/RoRAR2/RoR_AR/New Unity Project 2/Library/ScriptAssemblies/VuforiaEditorScripts.dll</HintPath>
+      <HintPath>C:/Users/Utilisateur/Documents/Projects perso/RoRAR2/RoR_AR/Unity Project/Library/ScriptAssemblies/VuforiaEditorScripts.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.CollabProxy.Editor">
+      <HintPath>C:/Users/Utilisateur/Documents/Projects perso/RoRAR2/RoR_AR/Unity Project/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Rider.Editor">
+      <HintPath>C:/Users/Utilisateur/Documents/Projects perso/RoRAR2/RoR_AR/Unity Project/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>C:/Users/Utilisateur/Documents/Projects perso/RoRAR2/RoR_AR/Unity Project/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>C:/Users/Utilisateur/Documents/Projects perso/RoRAR2/RoR_AR/Unity Project/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.11f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -301,13 +301,13 @@
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/16.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
     <Reference Include="Vuforia.UnityExtensions.Editor">
-      <HintPath>C:/Users/Utilisateur/Documents/Projects perso/RoRAR2/RoR_AR/New Unity Project 2/Library/PackageCache/com.ptc.vuforia.engine@9.1.7/Vuforia/Plugins/Managed/Editor/Vuforia.UnityExtensions.Editor.dll</HintPath>
+      <HintPath>C:/Users/Utilisateur/Documents/Projects perso/RoRAR2/RoR_AR/Unity Project/Library/PackageCache/com.ptc.vuforia.engine@9.6.3/Vuforia/Plugins/Managed/Editor/Vuforia.UnityExtensions.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Vuforia.UnityExtensions">
-      <HintPath>C:/Users/Utilisateur/Documents/Projects perso/RoRAR2/RoR_AR/New Unity Project 2/Library/PackageCache/com.ptc.vuforia.engine@9.1.7/Vuforia/Plugins/Managed/Runtime/Vuforia.UnityExtensions.dll</HintPath>
+      <HintPath>C:/Users/Utilisateur/Documents/Projects perso/RoRAR2/RoR_AR/Unity Project/Library/PackageCache/com.ptc.vuforia.engine@9.6.3/Vuforia/Plugins/Managed/Runtime/Vuforia.UnityExtensions.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
-      <HintPath>C:/Users/Utilisateur/Documents/Projects perso/RoRAR2/RoR_AR/New Unity Project 2/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
+      <HintPath>C:/Users/Utilisateur/Documents/Projects perso/RoRAR2/RoR_AR/Unity Project/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.11f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -666,11 +666,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{C90E7179-C988-D678-E424-F42F165359BD}</Project>
+      <Project>{BDBCE7D3-139D-3EDB-816D-FB1D73476D25}</Project>
       <Name>Assembly-CSharp</Name>
     </ProjectReference>
     <ProjectReference Include="EditorMigrationScripts.csproj">
-      <Project>{3FFF69CE-1083-80B2-2D84-DC29DF43F36F}</Project>
+      <Project>{0B3CFF4A-516B-609C-BE38-F8DB7D885D73}</Project>
       <Name>EditorMigrationScripts</Name>
     </ProjectReference>
   </ItemGroup>

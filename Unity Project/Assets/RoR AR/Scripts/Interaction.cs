@@ -5,7 +5,7 @@ using Lean.Touch;
 
 public class Interaction : MonoBehaviour
 {
-    LeanFingerFilter Use;
+    LeanFingerFilter m_use;
     LeanSelectable leanSelectable;
     [SerializeField]
     float maxScale;
@@ -14,14 +14,19 @@ public class Interaction : MonoBehaviour
     [SerializeField]
     float rotationSpeed = 5f;
 
-    void Start()
+    private bool m_doesRotate = true;
+    private bool m_doesScale = true;
+
+    public void Init(bool a_doesRotate, bool a_doesScale, LeanSelectable a_leanSelectable)
     {
+        m_doesRotate = a_doesRotate;
+        m_doesScale = a_doesScale;
         //initialize LeanFingerFilter
-        Use = new LeanFingerFilter(true);
-        Use.Filter = LeanFingerFilter.FilterType.AllFingers;
+        m_use = new LeanFingerFilter(true);
+        m_use.Filter = LeanFingerFilter.FilterType.AllFingers;
         //mark the leanselectable as selected so we can interact with it
-        leanSelectable = GetComponent<LeanSelectable>();
-        Use.RequiredSelectable = leanSelectable;
+        leanSelectable = a_leanSelectable;
+        m_use.RequiredSelectable = leanSelectable;
         leanSelectable.IsSelected = true;
         //set minimum scale
         minScale = transform.localScale.x;
@@ -50,7 +55,7 @@ public class Interaction : MonoBehaviour
 
     public void ScaleObject()
     {
-        List<LeanFinger> fingers = Use.GetFingers();
+        List<LeanFinger> fingers = m_use.GetFingers();
         pinchScale =  Mathf.Clamp(LeanGesture.GetPinchScale(fingers), 0, 2f);
 
         if (pinchScale != 1f)
@@ -64,11 +69,13 @@ public class Interaction : MonoBehaviour
         }
     }
 
-    private void Update()
+    public void Manage()
     {
         if (leanSelectable.IsSelected == false)
             leanSelectable.IsSelected = true;
-        ScaleObject();
-        RotateObject();
+        if (m_doesScale)
+            ScaleObject();
+        if (m_doesRotate)
+            RotateObject();
     }
 }

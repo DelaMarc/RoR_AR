@@ -4,6 +4,7 @@ using UnityEngine;
 using Lean.Touch;
 using UnityEngine.UI;
 using Vuforia;
+using RORAR.Entity;
 
 public class ModelManager : MonoBehaviour
 {
@@ -14,13 +15,13 @@ public class ModelManager : MonoBehaviour
     }
 
     public static ModelManager instance;
-    List<GameObject> models;
+    List<AEntity> models;
     int currentSelected;
     GameObject imageTargetDummy;
     [SerializeField]
     GameObject inclinedDummy, straightDummy;
     DummyPosition dummyPosition = DummyPosition.straigt;
-    GameObject currentARObject;
+    AEntity currentARObject;
     [HideInInspector]
     public bool imageTargetVisible = false;
     [SerializeField]
@@ -34,7 +35,7 @@ public class ModelManager : MonoBehaviour
             Destroy(instance);
         }
         instance = this;
-        models = new List<GameObject>();
+        models = new List<AEntity>();
         currentSelected = -1;
         //setup the rest of the class
         imageTargetDummy = straightDummy;
@@ -42,7 +43,7 @@ public class ModelManager : MonoBehaviour
         if (imageTargetDummy.transform.childCount == 0)
             currentARObject = null;
         else
-            currentARObject = imageTargetDummy.transform.GetChild(0).gameObject;        
+            currentARObject = imageTargetDummy.transform.GetChild(0).gameObject.GetComponent<AEntity>();        
     }
 
     public void SwitchDummy(Text textButton)
@@ -78,36 +79,32 @@ public class ModelManager : MonoBehaviour
     }
 
     //add a new model to the object list
-    public void AddModel(GameObject model)
+    public void AddModel(AEntity model)
     {
-        GameObject newModel;
+        AEntity newModel;
 
         newModel = Instantiate(model, instance.transform);
-        newModel.SetActive(false);
-        newModel.transform.localPosition = Vector3.zero;
+        newModel.Init();
         models.Add(newModel);
     }
 
     //disable all the renderers from a model, which is necessary before placing it on image target
     public void EnableItemRenderers(int index, bool enable)
     {
-        GameObject model = models[index];
+        AEntity model = models[index];
         Renderer[] renderers = model.GetComponentsInChildren<Renderer>();
 
         if (verbose)
         {
             Debug.Log("Enable Item Renderers : " + enable);
         }
-        for (int i = 0; i < renderers.Length; ++i)
-        {
-            renderers[i].enabled = enable;
-        }
+        model.EnableRenderers(enable);
     }
 
     //set a selected model on vuforia image target
     public void SelectModel(int index)
     {
-        GameObject newModel;
+        AEntity newModel;
 
         //don't execute code if selected model is the same as before
         if (index == currentSelected)
@@ -117,9 +114,7 @@ public class ModelManager : MonoBehaviour
         //hide previous model on Image Target and reset its values
         if (currentARObject != null)
         {
-            currentARObject.transform.SetParent(instance.transform, false);
-            currentARObject.transform.rotation = Quaternion.identity;
-            currentARObject.SetActive(false);
+            currentARObject.Disable(transform);
         }
         //place new model on image target;
         newModel = models[index];
@@ -133,19 +128,12 @@ public class ModelManager : MonoBehaviour
         {
             EnableItemRenderers(index, true);
         }
-        newModel.transform.SetParent(imageTargetDummy.transform, false);
-        newModel.transform.localPosition = Vector3.zero;
-        newModel.transform.rotation = imageTargetDummy.transform.rotation;
-        newModel.SetActive(true);
+        newModel.Enable(imageTargetDummy.transform);
         currentARObject = newModel;
     }
 
-    public void OnTrackingLost()
+    private void Update()
     {
-        Debug.Log("<color=red>Tracking lost</color>");
-    }
-    public void OnTrackingFound()
-    {
-        Debug.Log("<color=red>Tracking found</color>");
+        currentARObject?.Manage();
     }
 }

@@ -12,7 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 670a69fbeb50db34b9c2e764ceabbe6e, type: 3}
   m_Name: Jennifer
   m_EditorClassIdentifier: 
-  item: {fileID: 4281844370859173805, guid: d538cce8bd06567429b3593fc9fc10d5, type: 3}
-  picture: {fileID: 0}
+  item: {fileID: 7282283034909105017, guid: d538cce8bd06567429b3593fc9fc10d5, type: 3}
   name: Jennifer
-  fontSize: 90
