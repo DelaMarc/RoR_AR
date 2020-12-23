@@ -8,7 +8,7 @@ using RORAR.Entity;
 
 public class ModelManager : MonoBehaviour
 {
-    enum DummyPosition
+    public enum DummyPosition
     {
         straigt,
         inclined
@@ -25,12 +25,6 @@ public class ModelManager : MonoBehaviour
     public bool imageTargetVisible = false;
     bool m_verbose;
 
-    //initialize singleton
-    private void Start()
-    {
-
-    }
-
     public void Init(SceneConfigData a_data)
     {
         //initialize singleton
@@ -39,11 +33,17 @@ public class ModelManager : MonoBehaviour
             Destroy(instance);
         }
         instance = this;
+        //set dummy position
+        dummyPosition = a_data.DummyPosition;
+        if (dummyPosition == DummyPosition.straigt)
+            imageTargetDummy = straightDummy;
+        else
+            imageTargetDummy = inclinedDummy;
         //setup model list
         models = new List<AEntity>();
         currentSelected = -1;
         //setup the rest of the class
-        imageTargetDummy = straightDummy;
+        
         //get first AR Object assigned to Image Target        
         if (imageTargetDummy.transform.childCount == 0)
             currentARObject = null;

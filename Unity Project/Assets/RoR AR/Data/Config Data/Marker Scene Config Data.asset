@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9716dba36356953488a0a2e52626b22b, type: 3}
+  m_Name: Marker Scene Config Data
+  m_EditorClassIdentifier: 
+  m_items:
+  - {fileID: 11400000, guid: e65efb98f82bc2f48b8278a8a246989f, type: 2}
+  - {fileID: 11400000, guid: d7233f569ac7df8468dbec1ae2413513, type: 2}
+  - {fileID: 11400000, guid: 82e4030d0f0eae24ca18639c81de6674, type: 2}
+  - {fileID: 11400000, guid: f5ae5117ec264c14182773837221157d, type: 2}
+  - {fileID: 11400000, guid: f4d0ecb96038e22469d6cfed89a8888b, type: 2}
+  m_globalScale: 0.5
+  m_verbose: 1
+  m_dummyPosition: 1

@@ -30,6 +30,7 @@ public class Interaction : MonoBehaviour
         leanSelectable.IsSelected = true;
         //set minimum scale
         minScale = a_data.Scale;
+        transform.localScale = Vector3.one * minScale;
         pinchScale = 1f;
     }
 

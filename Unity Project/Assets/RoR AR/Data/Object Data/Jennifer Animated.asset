@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 670a69fbeb50db34b9c2e764ceabbe6e, type: 3}
+  m_Name: Jennifer Animated
+  m_EditorClassIdentifier: 
+  m_item: {fileID: 7650711109592375082, guid: 30108e968fc05a64281037550bed9ae9, type: 3}
+  m_name: Jennifer knife
+  m_doesRotate: 1
+  m_doesScale: 1

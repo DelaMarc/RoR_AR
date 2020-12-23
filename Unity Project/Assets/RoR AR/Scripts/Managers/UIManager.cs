@@ -1,11 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
     //splash screen to enable on play
     [SerializeField] GameObject fadeScreen;
+    [SerializeField] Text m_toggleDummyText;
     [SerializeField] GameObject panelBlockClick;
     [SerializeField] VerticalScrollList menuItem;
     [SerializeField] GameObject weatherItem;
@@ -29,6 +29,15 @@ public class UIManager : MonoBehaviour
         //enable fade screen in case it is disabled
         fadeScreen.SetActive(true);
         menuItem.Init(a_data.Items);
+        //setup dummy toggle text
+        if (a_data.DummyPosition == ModelManager.DummyPosition.straigt)
+        {
+            m_toggleDummyText.text = "View : straight";
+        }
+        else
+        {
+            m_toggleDummyText.text = "View : inclined";
+        }
     }
 
     //toggles appearance / disappearance of the menu
