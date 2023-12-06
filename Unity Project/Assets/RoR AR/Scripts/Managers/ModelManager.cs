@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Lean.Touch;
 using UnityEngine.UI;
-using Vuforia;
+//using Vuforia;
 using RORAR.Entity;
 
 public class ModelManager : MonoBehaviour
