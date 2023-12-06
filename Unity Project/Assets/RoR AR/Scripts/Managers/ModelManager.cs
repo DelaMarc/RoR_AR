@@ -1,9 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using Lean.Touch;
 using UnityEngine.UI;
-//using Vuforia;
 using RORAR.Entity;
 
 public class ModelManager : MonoBehaviour
@@ -14,41 +11,41 @@ public class ModelManager : MonoBehaviour
         inclined
     }
 
-    public static ModelManager instance;
-    List<AEntity> models;
-    int currentSelected;
-    GameObject imageTargetDummy;
-    [SerializeField] GameObject inclinedDummy, straightDummy;
-    DummyPosition dummyPosition = DummyPosition.straigt;
-    AEntity currentARObject;
+    public static ModelManager Instance;
+    List<AEntity> m_models;
+    int m_currentSelected;
+    GameObject m_imageTargetDummy;
+    [SerializeField] GameObject m_inclinedDummy, m_straightDummy;
+    DummyPosition m_dummyPosition = DummyPosition.straigt;
+    AEntity m_currentARObject;
     [HideInInspector]
-    public bool imageTargetVisible = false;
+    public bool m_imageTargetVisible = false;
     bool m_verbose;
 
     public void Init(SceneConfigData a_data)
     {
         //initialize singleton
-        if (instance != null && instance != this)
+        if (Instance != null && Instance != this)
         {
-            Destroy(instance);
+            Destroy(Instance);
         }
-        instance = this;
+        Instance = this;
         //set dummy position
-        dummyPosition = a_data.DummyPosition;
-        if (dummyPosition == DummyPosition.straigt)
-            imageTargetDummy = straightDummy;
+        m_dummyPosition = a_data.DummyPosition;
+        if (m_dummyPosition == DummyPosition.straigt)
+            m_imageTargetDummy = m_straightDummy;
         else
-            imageTargetDummy = inclinedDummy;
+            m_imageTargetDummy = m_inclinedDummy;
         //setup model list
-        models = new List<AEntity>();
-        currentSelected = -1;
+        m_models = new List<AEntity>();
+        m_currentSelected = -1;
         //setup the rest of the class
         
         //get first AR Object assigned to Image Target        
-        if (imageTargetDummy.transform.childCount == 0)
-            currentARObject = null;
+        if (m_imageTargetDummy.transform.childCount == 0)
+            m_currentARObject = null;
         else
-            currentARObject = imageTargetDummy.transform.GetChild(0).gameObject.GetComponent<AEntity>();
+            m_currentARObject = m_imageTargetDummy.transform.GetChild(0).gameObject.GetComponent<AEntity>();
         //update Object Manager List
         for (int i = 0; i < a_data.Items.Length; ++i)
         {
@@ -56,35 +53,38 @@ public class ModelManager : MonoBehaviour
         }
         m_verbose = a_data.Verbose;
     }
+
+    private void Log(string a_msg)
+    {
+        if (m_verbose)
+        {
+            Debug.Log(a_msg);
+        }
+    }
+
     public void SwitchDummy(Text textButton)
     {
         //switch active dummy
-        if (dummyPosition == DummyPosition.straigt)
+        if (m_dummyPosition == DummyPosition.straigt)
         {
-            imageTargetDummy = inclinedDummy;
-            dummyPosition = DummyPosition.inclined;
+            m_imageTargetDummy = m_inclinedDummy;
+            m_dummyPosition = DummyPosition.inclined;
             textButton.text = "View : inclined";
-            if (m_verbose)
-            {
-                Debug.Log("Set dummy to inclined");
-            }
+            Log("Set dummy to inclined");
         }
         else
         {
-            imageTargetDummy = straightDummy;
-            dummyPosition = DummyPosition.straigt;
+            m_imageTargetDummy = m_straightDummy;
+            m_dummyPosition = DummyPosition.straigt;
             textButton.text = "View : straight";
-            if (m_verbose)
-            {
-                Debug.Log("Set dummy to straight");
-            }
+            Log("Set dummy to straight");
         }
         //update model position
-        if (currentARObject != null)
+        if (m_currentARObject != null)
         {
-            currentARObject.transform.SetParent(imageTargetDummy.transform);
-            currentARObject.transform.localPosition = Vector3.zero;
-            currentARObject.transform.rotation = imageTargetDummy.transform.rotation;
+            m_currentARObject.transform.SetParent(m_imageTargetDummy.transform);
+            m_currentARObject.transform.localPosition = Vector3.zero;
+            m_currentARObject.transform.rotation = m_imageTargetDummy.transform.rotation;
         }
     }
 
@@ -93,21 +93,17 @@ public class ModelManager : MonoBehaviour
     {
         AEntity newModel;
 
-        newModel = Instantiate(a_data.Item, instance.transform);
+        newModel = Instantiate(a_data.Item, Instance.transform);
         newModel.Init(a_data);
-        models.Add(newModel);
+        m_models.Add(newModel);
     }
 
     //disable all the renderers from a model, which is necessary before placing it on image target
     public void EnableItemRenderers(int index, bool enable)
     {
-        AEntity model = models[index];
-        Renderer[] renderers = model.GetComponentsInChildren<Renderer>();
+        AEntity model = m_models[index];
 
-        if (m_verbose)
-        {
-            Debug.Log("Enable Item Renderers : " + enable);
-        }
+        Log("Enable Item Renderers : " + enable);
         model.EnableRenderers(enable);
     }
 
@@ -117,19 +113,19 @@ public class ModelManager : MonoBehaviour
         AEntity newModel;
 
         //don't execute code if selected model is the same as before
-        if (index == currentSelected)
+        if (index == m_currentSelected)
             return;
         else
-            currentSelected = index;
+            m_currentSelected = index;
         //hide previous model on Image Target and reset its values
-        if (currentARObject != null)
+        if (m_currentARObject != null)
         {
-            currentARObject.Disable(transform);
+            m_currentARObject.Disable(transform);
         }
         //place new model on image target;
-        newModel = models[index];
+        newModel = m_models[index];
         //disable model renderers if image target is not detected
-        if (imageTargetVisible == false)
+        if (m_imageTargetVisible == false)
         {
             EnableItemRenderers(index, false);
         }
@@ -138,13 +134,28 @@ public class ModelManager : MonoBehaviour
         {
             EnableItemRenderers(index, true);
         }
-        newModel.Enable(imageTargetDummy.transform);
-        currentARObject = newModel;
+        newModel.Enable(m_imageTargetDummy.transform);
+        m_currentARObject = newModel;
     }
 
     public void Manage()
     {
-        currentARObject?.Manage();
+        m_currentARObject?.Manage();
     }
+
+    #region Tracking
+    public void OnTrackingFound()
+    {
+        Log("<color=green>OnTrackingFound</color>");
+        m_imageTargetVisible = true;
+    }
+
+    public void OnTrackingLost()
+    {
+        m_imageTargetVisible = false;
+        Log("<color=red>OnTrackingLost</color>");
+    }
+
+    #endregion
 }
 

@@ -27,7 +27,7 @@ public class VerticalScrollList : MonoBehaviour
             //ModelManager.instance.AddModel(items[i]);
         }
         //set first model in model manager
-        ModelManager.instance.SelectModel(0);
+        ModelManager.Instance.SelectModel(0);
         //disable gameobject
         gameObject.SetActive(false);
     }
@@ -39,7 +39,7 @@ public class VerticalScrollList : MonoBehaviour
 
         item.GetComponent<Button>().onClick.AddListener(() => {
             autoTween.Toggle();
-            ModelManager.instance.SelectModel(staticIndex);
+            ModelManager.Instance.SelectModel(staticIndex);
         });
     }
 

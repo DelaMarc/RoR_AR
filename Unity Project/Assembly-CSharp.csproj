@@ -97,6 +97,7 @@
     <None Include="Assets\LeanTween\ReadMe.txt" />
     <None Include="Assets\LeanTween\License.txt" />
     <None Include="Assets\Lean\READ ME.txt" />
+    <None Include="Assets\StreamingAssets\Vuforia\RoR_AR.xml" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
