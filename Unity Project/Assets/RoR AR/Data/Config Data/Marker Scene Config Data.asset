@@ -19,5 +19,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f5ae5117ec264c14182773837221157d, type: 2}
   - {fileID: 11400000, guid: f4d0ecb96038e22469d6cfed89a8888b, type: 2}
   m_globalScale: 0.5
-  m_verbose: 1
+  m_verbose: 0
   m_dummyPosition: 1
