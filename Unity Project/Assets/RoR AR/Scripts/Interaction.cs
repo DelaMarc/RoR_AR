@@ -1,7 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using Lean.Touch;
+using Lean.Common;
+using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
 
 public class Interaction : MonoBehaviour
 {
@@ -16,9 +17,11 @@ public class Interaction : MonoBehaviour
 
     private bool m_doesRotate = true;
     private bool m_doesScale = true;
+    private float m_lastSwipeValue;
 
     public void Init(EntityData a_data, LeanSelectable a_leanSelectable)
     {
+        m_lastSwipeValue = 0;
         m_doesRotate = a_data.DoesRotate;
         m_doesScale = a_data.DoesScale;
         //initialize LeanFingerFilter
@@ -27,7 +30,7 @@ public class Interaction : MonoBehaviour
         //mark the leanselectable as selected so we can interact with it
         leanSelectable = a_leanSelectable;
         m_use.RequiredSelectable = leanSelectable;
-        leanSelectable.IsSelected = true;
+        leanSelectable.SelfSelected = true;
         //set minimum scale
         minScale = a_data.Scale;
         transform.localScale = Vector3.one * minScale;
@@ -37,14 +40,15 @@ public class Interaction : MonoBehaviour
     public void RotateObject()
     {
         //rotate object if a swipe is detected and we are not scaling
-        if (Input.touchCount > 0 && pinchScale == 1)
+        if (Touch.activeTouches.Count > 0 && pinchScale == 1)
         {
-            Touch touch = Input.GetTouch(0);
-            if (touch.phase == TouchPhase.Moved)
+            var touch = Touch.activeTouches[0];
+            if (touch.phase == UnityEngine.InputSystem.TouchPhase.Moved && touch.delta.x != m_lastSwipeValue)
             {
-                float rotationX = Input.GetAxis("Mouse X") * rotationSpeed * Mathf.Deg2Rad;
+                m_lastSwipeValue = touch.delta.x;
+                float x = Mathf.Clamp(touch.delta.x, -1f, 1f);
+                float rotationX = x * rotationSpeed * Mathf.Deg2Rad;
                 transform.RotateAround(transform.up, -rotationX);
-                //transform.Rotate(transform.up * rotationX);
             }
         }
     }
@@ -56,7 +60,7 @@ public class Interaction : MonoBehaviour
 
     public void ScaleObject()
     {
-        List<LeanFinger> fingers = m_use.GetFingers();
+        List<LeanFinger> fingers = m_use.UpdateAndGetFingers();
         pinchScale =  Mathf.Clamp(LeanGesture.GetPinchScale(fingers), 0, 2f);
 
         if (pinchScale != 1f)
@@ -73,7 +77,7 @@ public class Interaction : MonoBehaviour
     public void Manage()
     {
         if (leanSelectable.IsSelected == false)
-            leanSelectable.IsSelected = true;
+            leanSelectable.SelfSelected = true;
         if (m_doesScale)
             ScaleObject();
         if (m_doesRotate)
